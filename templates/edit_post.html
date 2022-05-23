@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <title>Изменение статьи</title>
+<script type="text/javascript" src="/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=STOwgOEiDR4HTGDEPcAXPsRcQ2REMHKBZITfi_jMjWu3qJvFehylONj6q7JQyzdtUIQFQgIIkH4LrcXoN8lNA_K4fDIaPg_DJYmNoHX0fRSqrtd6v-L1_IO9ldONRJQchgO_p7N0jgQjku-8HB3I0yUs_K9it66eyyAgk3kTZjdZtyWXJMPZomjLzFSM3wltkgfE4DJRUSosPojgFJGOedaDv-t28jNghYmZeqqp3qDC8hnlapld2qTri0ZXGGFB6v4XFBNl2YpHnqfLHV4_NZ1buNGIZrkeh55PtmlPjTF-WJ4_seYTmhrr0ryXNtqyVsU6sMIXL0PUElNgI4YeiDrKMvv2R47yAtDz-cYNFWuFCFy-rPLx86kdyXEQEgxGKd8hRDVPEDCwPeJk2JXRT31eVtU7peqcJJRZgChNE6CQn70gmug2X_A0VuRN3nurvRntpXJ6U-1l_-2JJWhBcy-aUYXiGaaQ996mjX8xC2NHbe8e5nDGuxaaFb3piIEayXkBqxskF19IXSkUvSh_BuRz-d0jRnJ-ncn1RifkszPULUVAwItTvtmafu6b3LaHiEXv6EGWQHJUh0_Q2N75s92u4vP7CR3k_q5hbWNaQh_93I2EDr2evPHyJC-52gwPwFTHQ0Xu6YnvptbuSdDQQJ7l_jg4fMtQ3Mdd2wZRY9cCn2Hn1doGVxu5hQa2cGu5MSdiMsr8Ago6Y1RmpRTUGEU_rbXhp4q6kokzqyE-NcKQCOfbTZ-0DHH06x7Tai0NcayiwzVMXDUuPLER1q5d-w" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9hdHQtYy51ZGVteWNkbi5jb20vMjAyMS0xMi0yOV8wNC0xNy0wMi03YmM2ZTE1OTM5N2Y5YTZhYzNhYjgwYjE3OGIzMzY0Zi9vcmlnaW5hbC5odG1sP3Jlc3BvbnNlLWNvbnRlbnQtZGlzcG9zaXRpb249YXR0YWNobWVudCUzYiUyMGZpbGVuYW1lJTNkZWRpdF9wb3N0Lmh0bWwmRXhwaXJlcz0xNjUyOTk2NzY2JlNpZ25hdHVyZT1aTlVheElFbmFBTi1ScnhpQnNsN2xHVkMtelJtfjJWazVOV1ZHbU0yNGxZRW5mSnJsZjN1QUFKaGZqeURCYURzeGx2MEdmWDl2VWduVkQ3bkg5ZGtGbkx0VjNHflQ1VnhqRklVWE5aN0J0OVJJVnFXNGl2b244SGRCREdjWlZQeHVDMjZsdjVOY1F5eU9-eWZhNnFBYVNQNWNjR3duU2lTYTF-Uk90bEtyaUVac0Z5TGRlVVV6Z1IzWnBVaE16enM2VGFRYmVZUVRNOThGV0o0dnZiTnNJOUxYS2MwdGRGb2Raen5lR0dYMUZnTTdlbjdkUGh4RlF5eHlZTjR6d2tTTUZkSGdsOUV-UDdVcWJXQWk2WmJ5cFF3Znl-OHkyNk9lbHNxbi1LbFFGOTBxUThta0Q4NmF3SUZQUDJVU2lKaX5FbjZzSkpqM2ZiejR2Q3Q5OFV-aGdfXyZLZXktUGFpci1JZD1BUEtBSVRKVjc3V1M1WlQ3MjYyQQ"/></head>
+<body class="container">
+    <main class="mt-5 container">
+        <form method="POST">
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Название статьи</label>
+                <input type="text"
+                       class="form-control"
+                       id="exampleFormControlInput1"
+                       name="title"
+                       placeholder="Введите название статьи"
+                       value="{{ article.title }}">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Рубрика статьи</label>
+                <select class="form-control" name="category_select" id="exampleFormControlSelect1">
+                    {% for category in categories %}
+                        <option value="{{ category.id }}">{{ category.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Вступление статьи</label>
+                <textarea class="form-control" name="introduction" id="exampleFormControlTextarea1" rows="2">{{ article.introduction }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Текст статьи</label>
+                <textarea class="form-control" name="article_text" id="exampleFormControlTextarea1" rows="5">{{ article.text }}</textarea>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Опубликовать</button>
+                <a class="btn btn-danger" href="{{ url_for('index') }}">Отмена</a>
+            </div>
+        </form>
+    </main>
+</body>
+</html>
